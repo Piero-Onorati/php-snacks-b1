@@ -3,27 +3,19 @@ Passare come parametri GET name, mail e age e verificare (cercando i metodi che 
 
 <?php
 
-$name = $_GET['name'];
-$age = $_GET['age'];
-$email = $_GET['email'];
-// var_dump($name);
-// var_dump($age);
-// var_dump($email);
-
 if (empty($_GET['name']) || empty($_GET['age']) || empty($_GET['email'])) {
-    $stringa = 'all the fields must be completed';
+    $stringa = 'All the fields must be completed';
     
 } else {
-    if( strlen($name)>3 && 
-    strpos($email, '@') && 
-    strpos($email, '.') && 
-    is_numeric($age)
+    if( strlen($_GET['name'])>3 && 
+    strpos($_GET['email'], '@') && 
+    strpos($_GET['email'], '.') && 
+    is_numeric($_GET['age'])
     ){
-        $stringa = 'accesso consentito';
+        $stringa = 'Access granted';
     } else {
-        $stringa = 'accesso negato';
+        $stringa = 'Access denied';
     }
-
 }
 
 
@@ -47,7 +39,7 @@ if (empty($_GET['name']) || empty($_GET['age']) || empty($_GET['email'])) {
     <button type="submit" form="form1">SUBMIT</button>
 </form>
 
-<p> esito: <?php echo $stringa; ?></p>
+<p> <?php echo $stringa; ?></p>
     
 </body>
 </html>
